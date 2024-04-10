@@ -434,7 +434,7 @@ public class EtsiTs102941Demo {
         enrolmentCACert = eacg.genAuthorizationCA("enrolca.test.com",eaCACalidityPeriod, null,new SubjectAssurance(2,0),signAlg, enrolCASignKeys.getPublic(), rootCACert, rootCAKeys.getPublic(), rootCAKeys.getPrivate(), SymmAlgorithm.aes128Ccm, BasePublicEncryptionKey.BasePublicEncryptionKeyChoices.ecdsaNistP256,enrolCAEncKeys.getPublic());
 
         enrolValidityPeriod = new ValidityPeriod(timeStamp, Duration.DurationChoices.years, 5);
-        enrolmentCredCert = eecg.genEnrollCredential("enrollcert.test.com",enrolValidityPeriod,regionSwe,Hex.decode("01C0"),2,1,signAlg, enrolCredSignKeys.getPublic(), enrolmentCACert, authorizationCASignKeys.getPublic(), authorizationCASignKeys.getPrivate(), SymmAlgorithm.aes128Ccm, BasePublicEncryptionKey.BasePublicEncryptionKeyChoices.ecdsaNistP256,enrolCredEncKeys.getPublic());
+        enrolmentCredCert = eecg.genEnrollCredential("enrollcert.test.com",enrolValidityPeriod,regionSwe,Hex.decode("01C0"),2,1,signAlg, enrolCredSignKeys.getPublic(), enrolmentCACert, enrolCASignKeys.getPublic(), enrolCASignKeys.getPrivate(), SymmAlgorithm.aes128Ccm, BasePublicEncryptionKey.BasePublicEncryptionKeyChoices.ecdsaNistP256,enrolCredEncKeys.getPublic());
 
         PsidSsp testSSP1 = new PsidSsp(AvailableITSAID.CABasicService,new ServiceSpecificPermissions(ServiceSpecificPermissions.ServiceSpecificPermissionsChoices.opaque,"somebytes".getBytes()));
         PsidSsp testSSP2 = new PsidSsp(AvailableITSAID.DENBasicService,new ServiceSpecificPermissions(ServiceSpecificPermissions.ServiceSpecificPermissionsChoices.opaque,"otherbytes".getBytes()));
